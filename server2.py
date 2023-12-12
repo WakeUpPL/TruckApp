@@ -25,7 +25,7 @@ def handle_client(client_socket, addr, clients, history_file, nicknames, lock):
                 with lock:
                     admin_socket = find_client_by_nickname("@admin", clients, nicknames)
                 if admin_socket:
-                    admin_socket.send(f"Private message from {timestamp} {nickname}: {message}".encode('utf-8'))
+                    admin_socket.send(f"-> {timestamp} {nickname}: {message}".encode('utf-8'))
                 else:
                     client_socket.send("Error: Admin not found.".encode('utf-8'))
             elif message.startswith("@"):

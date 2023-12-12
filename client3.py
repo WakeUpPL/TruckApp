@@ -14,6 +14,10 @@ class ClientGUI:
         self.connected_clients = []
 
         self.create_widgets()
+    
+    def auto_scroll(self):
+        # Викликати цей метод для автоматичного скролінгу
+        self.text_area.yview_moveto(1.0)
 
     def create_widgets(self):
         self.text_area = scrolledtext.ScrolledText(self.master, wrap=tk.WORD)
@@ -44,6 +48,7 @@ class ClientGUI:
         if message:
             try:
                 self.client_socket.send(message.encode('utf-8'))
+                self.auto_scroll()
                 self.entry.delete(0, tk.END)  # Clear the entry field after sending
             except Exception as e:
                 print(f"Error sending message: {e}")
@@ -63,6 +68,7 @@ class ClientGUI:
                 else:
                     # Handle regular messages
                     self.text_area.insert(tk.END, received_message + '\n')
+                    self.auto_scroll()
             except Exception as e:
                 print(f"Error receiving message: {e}")
                 break  # Exit the loop in case of an error
