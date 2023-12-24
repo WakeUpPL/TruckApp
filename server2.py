@@ -66,7 +66,7 @@ def find_client_by_nickname(nickname, clients, nicknames):
     return None
 
 def main():
-    host = '127.0.0.1'
+    host = '91.207.60.55'
     port = 5555
     history_file = 'chat_history.txt'
 
