@@ -89,6 +89,6 @@ if __name__ == "__main__":
     root.title("Chat Client")
     
     # Replace '127.0.0.1' and 5555 with your server's host and port
-    client_gui = ClientGUI(root, host='127.0.0.1', port=5555)
+    client_gui = ClientGUI(root, host='91.207.60.55', port=5555)
 
     root.mainloop()
